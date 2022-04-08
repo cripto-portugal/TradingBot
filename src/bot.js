@@ -1,3 +1,4 @@
+
 const trader = require("../build/contracts/Trader");
 const {
     Contract,
@@ -7,7 +8,7 @@ const {
 } = require('ethers')
 
 // Replace 'Kovan' by any other network
-const provider = getDefaultProvider('kovan');
+const provider = getDefaultProvider('istanbul'); // check if it works
 
 
 const jsonFile = [
@@ -25,8 +26,28 @@ const jsonFile = [
     }
 ];
 
-setInterval(
-(async() => {
+/*
+var Web3 = require('web3')
+var Common = require('ethereumjs-common').default;
+
+var web3 = new Web3(new Web3.providers.HttpProvider('https://bsc-dataseed.binance.org/'))
+var BLOCKCHAIN = Common.forCustomChain(
+    'mainnet',
+    {
+        name: 'Binance Smart Chain Mainnet',
+        networkId: 56,
+        chainId: 56,
+        url: 'https://bsc-dataseed.binance.org/'
+    },
+    'istanbul',
+);
+*/
+
+//var provider = web3;
+
+
+function negociarToken() {
+  (async() => {
 
     // Add Signer here
     // const signer = new Wallet('PRIVATEKEY_HERE', provider);
@@ -41,4 +62,7 @@ setInterval(
     }
     console.log(currentPrice.toString());
 
-}), 13000);
+  })
+}
+
+setInterval(negociarToken, 1800);
