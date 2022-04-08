@@ -1,6 +1,6 @@
-# Uniswap Trading Bot
+# CakeSwap Trading Bot
 
-Uniswap trading bot that will sell ETH to DAI at predefined target prices.
+CakeSwap trading bot that will sell BNB to another Token at predefined target prices.
 
 The bot will read the target prices from a JSON file that looks like this:
 
@@ -8,13 +8,13 @@ target-prices.json:
 ```json
 [
     {
-        "from": "ETH",
+        "from": "BNB",
         "to": "DAI",
         "target": "400",
         "amount": "1"
     },
     {
-        "from": "ETH",
+        "from": "BNB",
         "to": "DAI",
         "target": "500",
         "amount": "2"
@@ -23,8 +23,6 @@ target-prices.json:
 ```
 
 The bot will listen to price changes on a block by block basis and execute the trade when target prices are met.
-
-The Uniswap SDK can be used https://uniswap.org/docs/v2/SDK/getting-started/ to retrieve the prices.
 
 A smart contract is needed to execute the sell, it can look like this:
 
@@ -55,5 +53,5 @@ interface IUniswapRouter {
 
 Notes:
 
-- ETH is expressed in decimals (or Wei), 1 ETH = 1e18 Wei (or 10^18). The same applies to DAI.
-- ETH is represented by the address 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE
+- BNB is expressed in decimals (or Wei), 1 ETH = 1e18 Wei (or 10^18). 
+- BNB is represented by the address 0x000000000000000000
